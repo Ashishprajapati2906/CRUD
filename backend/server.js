@@ -2,7 +2,9 @@ const express = require("express");
 const { default: mongoose } = require("mongoose");
 const app = express();
 const PORT = 5000;
+const cors = require("cors");
 
+app.use(cors());
 app.use(express.json());
 
 //db connection
@@ -70,7 +72,6 @@ app.get("/read/:id", async (req, res) => {
     res.send(error);
   }
 });
-
 
 //update by id
 app.put("/update/:id", async (req, res) => {
