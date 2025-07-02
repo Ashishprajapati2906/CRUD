@@ -38,7 +38,17 @@ const Home = () => {
     useEffect(() => {
         fetchalluser()
     }, [])
-    // console.log(userData);
+
+    const handleDelete = async (id) =>
+    {
+        const res = await axios.delete(`http://localhost:5000/delete/${id}`)
+        if (res.status === 200) {
+            fetchalluser()
+        }
+    }
+    
+
+
 
     return (
         <div className="w-2/3 mx-auto mt-5">
@@ -143,7 +153,7 @@ const Home = () => {
                                             Edit
                                         </NavLink>
                                         <button
-                                            //   onClick={() => handleDelete(item._id)}
+                                              onClick={() => handleDelete(item._id)}
                                             className="font-medium text-red-500  hover:underline"
                                         >
                                             Delete
