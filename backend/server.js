@@ -11,7 +11,7 @@ app.use(express.json());
 mongoose
   .connect("mongodb://127.0.0.1:27017/crud123")
   .then(() => {
-    console.log("DB connection successfully");
+    console.log("DataBase connection successfully");
   })
   .catch((error) => {
     console.log(error);
